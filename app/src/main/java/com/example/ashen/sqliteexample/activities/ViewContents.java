@@ -1,5 +1,6 @@
 package com.example.ashen.sqliteexample.activities;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ashen.sqliteexample.R;
 import com.example.ashen.sqliteexample.adapters.ContentRecyclerAdapter;
@@ -31,6 +33,7 @@ public class ViewContents extends AppCompatActivity {
     private AppCompatTextView textViewModuleName;
     private RecyclerView recyclerViewUsers;
     private ContentRecyclerAdapter contentRecyclerAdapter;
+    private ContentRecyclerAdapter.OnItemClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +57,22 @@ public class ViewContents extends AppCompatActivity {
      */
     private void initObjects() {
         listContent = new ArrayList<>();
-        contentRecyclerAdapter = new ContentRecyclerAdapter(listContent);
+        contentRecyclerAdapter = new ContentRecyclerAdapter(listContent,listener);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewUsers.setLayoutManager(mLayoutManager);
         recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
         recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(contentRecyclerAdapter);
+        recyclerViewUsers.setAdapter(new ContentRecyclerAdapter(listContent, new ContentRecyclerAdapter.OnItemClickListener() {
+            @Override public void onItemClick(Content item) {
+                Toast.makeText(getApplicationContext(), "Item Clicked :" + item.getModuleName(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),descriptionActivity.class);
+
+                intent.putExtra("ListViewClickedItemValue", item.getModuleDescription());
+
+                startActivity(intent);
+            }
+        }));
         contentDbHelper = new ContentDbHelper();
 
         getAllContent();

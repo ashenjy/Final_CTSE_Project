@@ -19,21 +19,16 @@ import java.util.List;
 
 public class ContentRecyclerAdapter extends RecyclerView.Adapter<ContentRecyclerAdapter.ContentViewHolder> {
 
-//    public interface OnItemClickListener {
-//        void onItemClick(Content item);
-//    }
+    public interface OnItemClickListener {
+        void onItemClick(Content item);
+    }
 
     private List<Content> listContent;
-//    private final OnItemClickListener listener;
+    private final OnItemClickListener listener;
 
-//    public ContentRecyclerAdapter(List<Content> listContent,OnItemClickListener listener) {
-//        this.listContent = listContent;
-//        this.listener = listener;
-//    }
-
-    public ContentRecyclerAdapter(List<Content> listContent) {
+    public ContentRecyclerAdapter(List<Content> listContent,OnItemClickListener listener) {
         this.listContent = listContent;
-
+        this.listener = listener;
     }
 
 
@@ -46,15 +41,10 @@ public class ContentRecyclerAdapter extends RecyclerView.Adapter<ContentRecycler
         return new ContentViewHolder(itemView);
     }
 
-//    @Override
-//    public void onBindViewHolder(ContentViewHolder holder, int position) {
-//        holder.bind(listContent.get(position), listener);
-//
-//    }
 
         @Override
     public void onBindViewHolder(ContentViewHolder holder, int position) {
-        holder.textViewModuleName.setText(listContent.get(position).getModuleName());
+        holder.bind(listContent.get(position),listener);
 
     }
 
@@ -77,15 +67,15 @@ public class ContentRecyclerAdapter extends RecyclerView.Adapter<ContentRecycler
             textViewModuleName = (AppCompatTextView) view.findViewById(R.id.textViewModuleName);
         }
 
-//        public void bind(final Content item, final OnItemClickListener listener) {
-//            textViewModuleName.setText(item.getModuleName());
-//
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override public void onClick(View v) {
-//                    listener.onItemClick(item);
-//                }
-//            });
-//        }
+        public void bind(final Content item, final OnItemClickListener listener) {
+            textViewModuleName.setText(item.getModuleName());
+
+            textViewModuleName.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
+        }
 
     }
 
