@@ -3,6 +3,7 @@ package com.example.ashen.sqliteexample.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -38,6 +39,7 @@ import android.widget.TextView;
 import com.example.ashen.sqliteexample.R;
 import com.example.ashen.sqliteexample.helpers.InputValidation;
 import com.example.ashen.sqliteexample.sql.DatabaseHelper;
+import com.example.ashen.sqliteexample.sql.DatabaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
+    private static DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initViews();
         initListeners();
         initObjects();
+
     }
 
     /**
@@ -108,8 +111,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     private void initObjects() {
         databaseHelper = new DatabaseHelper(activity);
+        DatabaseManager.initializeInstance(databaseHelper);
         inputValidation = new InputValidation(activity);
-
     }
 
     /**
@@ -149,7 +152,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 , textInputEditTextPassword.getText().toString().trim())) {
 
 
-            Intent accountsIntent = new Intent(activity, UsersListActivity.class);
+            Intent accountsIntent = new Intent(activity, InsertModules.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountsIntent);

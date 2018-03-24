@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/viewModules"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="View Modules" />
+        <item
+            android:id="@+id/addModules"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Add Modules" />
+        <item
+            android:id="@+id/editModules"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Edit Modules" />
+        <item
+            android:id="@+id/viewUsers"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Registered Users" />
+    </group>
+
+</menu>
