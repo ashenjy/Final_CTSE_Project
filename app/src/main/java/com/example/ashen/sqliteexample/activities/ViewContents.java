@@ -67,8 +67,9 @@ public class ViewContents extends AppCompatActivity {
             @Override public void onItemClick(Content item) {
                 Toast.makeText(getApplicationContext(), "Item Clicked :" + item.getModuleName(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),descriptionActivity.class);
-
-                intent.putExtra("ListViewClickedItemValue", item.getModuleDescription());
+                //Passing String values to description activity.
+                intent.putExtra("ClickedItemValue_ModuleName", item.getModuleName());
+                intent.putExtra("ClickedItemValue_ModuleDesc", item.getModuleDescription());
 
                 startActivity(intent);
             }
