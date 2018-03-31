@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activities.welcomeScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,9 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activities.InsertModules" />
         <activity android:name=".activities.ViewContents" />
-        <activity android:name=".activities.descriptionActivity"></activity>
+        <activity android:name=".activities.descriptionActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.EditActivity"></activity>
     </application>
 
 </manifest>

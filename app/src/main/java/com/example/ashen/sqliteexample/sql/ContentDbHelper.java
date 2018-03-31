@@ -85,4 +85,25 @@ public class ContentDbHelper {
         return contentList;
     }
 
+    public void updateContent(Content content) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_CONTENT_NAME, content.getModuleName());
+        values.put(COLUMN_CONTENT_DESC, content.getModuleDescription());
+
+        // updating row
+        db.update(TABLE_CONTENT, values, COLUMN_CONTENT_ID + " = ?",
+                new String[]{String.valueOf(content.getId())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    public void deleteContent(Content content) {
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        // delete user record by id
+        db.delete(TABLE_CONTENT, COLUMN_CONTENT_ID + " = ?",
+                new String[]{String.valueOf(content.getId())});
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
 }

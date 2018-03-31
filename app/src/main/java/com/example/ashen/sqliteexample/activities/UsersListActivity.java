@@ -1,5 +1,6 @@
 package com.example.ashen.sqliteexample.activities;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.ashen.sqliteexample.R;
 import com.example.ashen.sqliteexample.adapters.UsersRecyclerAdapter;
@@ -84,5 +87,38 @@ public class UsersListActivity extends AppCompatActivity {
                 usersRecyclerAdapter.notifyDataSetChanged();
             }
         }.execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent startIntent = null;
+        switch(item.getItemId()) {
+            case R.id.add:
+                startIntent = new Intent(getApplicationContext(), InsertModules.class);
+                startActivity(startIntent);
+                return(true);
+            case R.id.logout:
+                startIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(startIntent);
+                return(true);
+            case R.id.user_details:
+                startIntent = new Intent(getApplicationContext(), UsersListActivity.class);
+                startActivity(startIntent);
+                return(true);
+            case R.id.view:
+                startIntent = new Intent(getApplicationContext(), ViewContents.class);
+                startActivity(startIntent);
+                return(true);
+
+        }
+        return(super.onOptionsItemSelected(item));
     }
 }

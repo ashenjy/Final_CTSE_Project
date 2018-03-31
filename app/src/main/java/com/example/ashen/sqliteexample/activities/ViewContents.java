@@ -9,6 +9,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -65,9 +67,9 @@ public class ViewContents extends AppCompatActivity {
         recyclerViewUsers.setHasFixedSize(true);
         recyclerViewUsers.setAdapter(new ContentRecyclerAdapter(listContent, new ContentRecyclerAdapter.OnItemClickListener() {
             @Override public void onItemClick(Content item) {
-                Toast.makeText(getApplicationContext(), "Item Clicked :" + item.getModuleName(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),descriptionActivity.class);
                 //Passing String values to description activity.
+                intent.putExtra("ClickedItemValue_moduleId", item.getId());
                 intent.putExtra("ClickedItemValue_ModuleName", item.getModuleName());
                 intent.putExtra("ClickedItemValue_ModuleDesc", item.getModuleDescription());
 
@@ -99,5 +101,38 @@ public class ViewContents extends AppCompatActivity {
             }
 
         }.execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent startIntent = null;
+        switch(item.getItemId()) {
+            case R.id.add:
+                startIntent = new Intent(getApplicationContext(), InsertModules.class);
+                startActivity(startIntent);
+                return(true);
+            case R.id.logout:
+                startIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(startIntent);
+                return(true);
+            case R.id.user_details:
+                startIntent = new Intent(getApplicationContext(), UsersListActivity.class);
+                startActivity(startIntent);
+                return(true);
+            case R.id.view:
+                startIntent = new Intent(getApplicationContext(), ViewContents.class);
+                startActivity(startIntent);
+                return(true);
+
+        }
+        return(super.onOptionsItemSelected(item));
     }
 }

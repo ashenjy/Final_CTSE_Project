@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">About CTSE</string>
     <string name="text_accounts">All Accounts</string>
+    <string name="user_details">User Details</string>
+    <string name="text_modules">All Modules</string>
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -18,10 +20,21 @@
     <string name="error_password_match">Password Does Not Matches</string>
     <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="action_settings">Settings</string>
-    <string name="text_hello">Hello,</string>
-    <string name="text_title">Android Tutorials Hub</string>
+    <string name="text_hello">Hello User,</string>
     <string name="title_activity_navigation">NavigationActivity</string>
-
+    <string name="add_record">Add</string>
+    <string name="home">Home</string>
+    <string name="view_all">View Modules</string>
+    <string name="module_name">Module Name</string>
+    <string name="module_description">Module Description</string>
+    <string name="viewusers">View Users</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="edit_record">Edit</string>
+    <string name="delete_record">Delete</string>
+    <string name="insert_Module">Add Module</string>
+    <string name="edit_Module">Edit Module</string>
+    <string name="logout">Logout</string>
+    <string name="update">Update</string>
+
 </resources>

@@ -8,4 +8,5 @@
     <color name="colorTextHint">#51d8c7</color>
     <color name="colorSnackBarText">#da0b31</color>
     <color name="colorSnackBarTextRegisterSuccess">#36968a</color>
+    <color name="splashBackground">#51d8c7</color>
 </resources>

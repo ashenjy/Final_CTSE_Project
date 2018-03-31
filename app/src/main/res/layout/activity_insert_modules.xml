@@ -13,24 +13,34 @@
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+
+            android:text="@string/insert_Module"
+            android:textColor="?android:attr/textColor"
+            android:textStyle="bold"
+            android:textSize="18sp" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutModuleName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/moduleName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Module Name"
-                android:inputType="text"
-                android:maxLines="1"
+                android:hint="@string/module_name"
+                android:inputType="text|textMultiLine"
                 android:textColor="@color/colorText" />
         </android.support.design.widget.TextInputLayout>
 
@@ -44,20 +54,25 @@
                 android:id="@+id/moduleDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Module Description"
-                android:inputType="text"
-                android:maxLines="1"
+                android:hint="@string/module_description"
+                android:inputType="text|textMultiLine"
                 android:textColor="@color/colorText" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/appCompatButtonAddContents"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="40dp"
+            android:padding="12dp"
             android:background="@color/colorTextHint"
-            android:text="ADD RECORD" />
+            android:text="@string/add_record"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
 
 
     </android.support.v7.widget.LinearLayoutCompat>
+
 </android.support.v4.widget.NestedScrollView>

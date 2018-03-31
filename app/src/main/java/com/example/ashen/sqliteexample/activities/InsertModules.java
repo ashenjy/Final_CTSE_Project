@@ -1,25 +1,24 @@
 package com.example.ashen.sqliteexample.activities;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ashen.sqliteexample.R;
 import com.example.ashen.sqliteexample.helpers.InputValidation;
 import com.example.ashen.sqliteexample.modal.Content;
-import com.example.ashen.sqliteexample.modal.User;
 import com.example.ashen.sqliteexample.sql.ContentDbHelper;
-import com.example.ashen.sqliteexample.sql.DatabaseHelper;
-import com.example.ashen.sqliteexample.sql.DatabaseManager;
 
 public class InsertModules extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = InsertModules.this;
@@ -41,6 +40,7 @@ public class InsertModules extends AppCompatActivity implements View.OnClickList
         initViews();
         initListeners();
         initObjects();
+
     }
 
     private void initListeners() {
@@ -101,7 +101,9 @@ public class InsertModules extends AppCompatActivity implements View.OnClickList
             snackbar.show();
             emptyInputEditText();
 
-
+        Intent insertIntent = new Intent(getApplicationContext(), ViewContents.class);
+        insertIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(insertIntent);
 
     }
 
@@ -111,5 +113,34 @@ public class InsertModules extends AppCompatActivity implements View.OnClickList
     private void emptyInputEditText() {
         textInputEditTextmoduleName.setText(null);
         textInputEditTextmoduleDesc.setText(null);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent startIntent = null;
+        switch(item.getItemId()) {
+        case R.id.logout:
+            startIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(startIntent);
+            return(true);
+        case R.id.user_details:
+            startIntent = new Intent(getApplicationContext(), UsersListActivity.class);
+            startActivity(startIntent);
+            return(true);
+        case R.id.view:
+            startIntent = new Intent(getApplicationContext(), ViewContents.class);
+            startActivity(startIntent);
+            return(true);
+
+    }
+        return(super.onOptionsItemSelected(item));
     }
 }

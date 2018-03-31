@@ -46,7 +46,6 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         return listUsers.size();
     }
 
-
     /**
      * ViewHolder class
      */
