@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ashen.sqliteexample"
+    package="com.example.goteam.sqliteexample"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -23,7 +23,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.ashen.sqliteexample.activities.welcomeScreen"
+            android:name="com.example.goteam.sqliteexample.activities.welcomeScreen"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,16 +32,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ashen.sqliteexample.activities.RegisterActivity"
+            android:name="com.example.goteam.sqliteexample.activities.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.ashen.sqliteexample.activities.UsersListActivity"
+            android:name="com.example.goteam.sqliteexample.activities.UsersListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.example.ashen.sqliteexample.activities.InsertModules" />
-        <activity android:name="com.example.ashen.sqliteexample.activities.ViewContents" />
-        <activity android:name="com.example.ashen.sqliteexample.activities.descriptionActivity" />
-        <activity android:name="com.example.ashen.sqliteexample.activities.LoginActivity" />
-        <activity android:name="com.example.ashen.sqliteexample.activities.EditActivity" />
+        <activity android:name="com.example.goteam.sqliteexample.activities.InsertModules" />
+        <activity android:name="com.example.goteam.sqliteexample.activities.ViewContents" />
+        <activity android:name="com.example.goteam.sqliteexample.activities.descriptionActivity" />
+        <activity android:name="com.example.goteam.sqliteexample.activities.LoginActivity" />
+        <activity android:name="com.example.goteam.sqliteexample.activities.EditActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

@@ -32,7 +32,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="edit_record">Edit</string>
     <string name="delete_record">Delete</string>
-    <string name="insert_Module">Add Module</string>
+    <string name="add_Module">Add Module</string>
     <string name="edit_Module">Edit Module</string>
     <string name="logout">Logout</string>
     <string name="update">Update</string>

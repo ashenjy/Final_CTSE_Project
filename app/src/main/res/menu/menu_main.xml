@@ -4,9 +4,11 @@
 
     <!--<item-->
         <!--android:id="@+id/add" android:icon="@android:drawable/ic_menu_add" app:showAsAction="always"   android:title="add"/>-->
-       <item
-        android:id="@+id/add" android:icon="@android:drawable/ic_dialog_info" app:showAsAction="never" android:title="@string/insert_Module">
-    </item>
+    <item
+        android:id="@+id/add"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/add_Module"
+        app:showAsAction="never"></item>
 
     <item
         android:id="@+id/view"  app:showAsAction="never" android:title="@string/view_all">

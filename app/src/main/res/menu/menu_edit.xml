@@ -11,8 +11,10 @@
         android:id="@+id/edit" android:icon="@android:drawable/ic_menu_edit" app:showAsAction="always|withText" android:title="@string/edit_Module"/>
 
     <item
-        android:id="@+id/add" android:icon="@android:drawable/ic_dialog_info" app:showAsAction="never" android:title="@string/insert_Module">
-    </item>
+        android:id="@+id/add"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/add_Module"
+        app:showAsAction="never"></item>
 
     <item
         android:id="@+id/view"  app:showAsAction="never" android:title="@string/view_all">
